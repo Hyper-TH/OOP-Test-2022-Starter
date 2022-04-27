@@ -1,5 +1,7 @@
 package ie.tudublin;
 
+import processing.core.PApplet;
+import processing.data.TableRow;
 public class Nematode 
 {
     // All elements of the cvs file
@@ -39,11 +41,34 @@ public class Nematode
     public void setEyes(int eyes) {
         this.eyes = eyes;
     }
-    
+
     @Override
     public String toString() {
         return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
                 + name + "]";
+    }
+
+    // Table rows
+    public Nematode(TableRow tr)
+    {
+        this(
+            tr.getString("Name"),
+            tr.getInt("length"),
+            tr.getInt("limbs"),
+            tr.getString("gender"),
+            tr.getInt("eyes")
+        );
+           
+    }
+
+    // Class constructor
+    public Nematode(String name, int length, int limbs, String gender, int eyes)
+    {
+        this.name = name;
+        this.length = length;   
+        this.limbs = limbs;   
+        this.gender = gender;   
+        this.eyes = eyes;   
     }
 
 }
