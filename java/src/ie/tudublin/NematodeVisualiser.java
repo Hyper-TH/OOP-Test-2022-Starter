@@ -29,11 +29,11 @@ public class NematodeVisualiser extends PApplet
 		// Restart when reached limits
 		if(keyCode < 0)
 		{
-			keyCode = 0;	
+			currentNematode = 0;	
 		}
 		if(keyCode > 12)
 		{
-			keyCode = 0;
+			currentNematode = 0;
 		}
 	}
 
