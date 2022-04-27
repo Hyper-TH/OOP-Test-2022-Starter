@@ -103,6 +103,14 @@ public class Nematode
             // x, y, radius (currently goes upwards by 50 pixels)
             pa.circle(pa.width/2, i * 50, 50);
 
+            // If there are limbs
+            if(limbs)
+            {
+                pa.stroke(255,255,255);
+                pa.line(x, i*50, x, i*50);
+            }
+
+
         }
 
     }
