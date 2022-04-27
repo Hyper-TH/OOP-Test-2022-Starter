@@ -84,7 +84,7 @@ public class NematodeVisualiser extends PApplet
 		// 	n.render(this);
 		// }
 
-		Nematode n = nematodes.get(0);
+		Nematode n = nematodes.get(3);
 		n.render(this);
 	}
 

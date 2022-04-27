@@ -7,10 +7,22 @@ public class Nematode
     // All elements of the cvs file
     private String name;
     private int length;
-    private int limbs;
+    private boolean limbs;
     private String gender;
-    private int eyes;
+    private boolean eyes;
     
+    // Table rows
+    public Nematode(TableRow tr)
+    {
+        this(
+            tr.getString("name"),
+            tr.getInt("length"),
+            tr.getInt("limbs") == 1,
+            tr.getString("gender"),
+            tr.getInt("eyes") == 1
+        );
+           
+    }
     public String getName() {
         return name;
     }
@@ -23,10 +35,10 @@ public class Nematode
     public void setLength(int length) {
         this.length = length;
     }
-    public int getLimbs() {
+    public boolean getLimbs() {
         return limbs;
     }
-    public void setLimbs(int limbs) {
+    public void setLimbs(boolean limbs) {
         this.limbs = limbs;
     }
     public String getGender() {
@@ -35,10 +47,10 @@ public class Nematode
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public int getEyes() {
+    public boolean getEyes() {
         return eyes;
     }
-    public void setEyes(int eyes) {
+    public void setEyes(boolean eyes) {
         this.eyes = eyes;
     }
 
@@ -48,21 +60,9 @@ public class Nematode
                 + name + "]";
     }
 
-    // Table rows
-    public Nematode(TableRow tr)
-    {
-        this(
-            tr.getString("name"),
-            tr.getInt("length"),
-            tr.getInt("limbs"),
-            tr.getString("gender"),
-            tr.getInt("eyes")
-        );
-           
-    }
-
+    
     // Class constructor
-    public Nematode(String name, int length, int limbs, String gender, int eyes)
+    public Nematode(String name, int length, boolean limbs, String gender, boolean eyes)
     {
         this.name = name;
         this.length = length;   
@@ -71,4 +71,31 @@ public class Nematode
         this.eyes = eyes;   
     }
 
+    // Render
+    public void render (NematodeVisualiser pa)
+    {
+        // map
+        // Let eyes be 2 lines and a circle on each end of it
+        // Let length be number of segments
+        // m : line and circle on last segment
+        // f : circle on last segment
+        // h : both 
+        // n : just segments
+
+        for(int i = 0; i < length; i++)
+        {
+            float y = PApplet.map(i, 1, length, pa.border, (pa.height - pa.border));
+
+            // float colour = PApplet.map(i, 1, length, 0, 360);
+
+            // Circle colour
+            pa.stroke(255, 255, 255);
+            //pa.stroke((int) colour);
+            pa.noFill();
+
+            // x, y, radius
+            pa.circle(pa.width/2, y, 50);
+        }
+
+    }
 }
