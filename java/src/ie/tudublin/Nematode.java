@@ -23,9 +23,13 @@ public class Nematode
         );
            
     }
+
+    // Getter
     public String getName() {
         return name;
     }
+
+    // Setter
     public void setName(String name) {
         this.name = name;
     }
@@ -54,6 +58,7 @@ public class Nematode
         this.eyes = eyes;
     }
 
+    // toString method (overrided)
     @Override
     public String toString() {
         return "Nematode [eyes=" + eyes + ", gender=" + gender + ", length=" + length + ", limbs=" + limbs + ", name="
@@ -84,8 +89,10 @@ public class Nematode
 
         for(int i = 0; i < length; i++)
         {
-            float y = PApplet.map(i, 1, length, pa.border, (pa.height - pa.border));
+            // Map y coordinate
+            // float y = PApplet.map(i, 1, length, pa.border, (pa.height - pa.border));
 
+            // Map colour (HSB)
             // float colour = PApplet.map(i, 1, length, 0, 360);
 
             // Circle colour
@@ -93,8 +100,9 @@ public class Nematode
             //pa.stroke((int) colour);
             pa.noFill();
 
-            // x, y, radius
-            pa.circle(pa.width/2, y, 50);
+            // x, y, radius (currently goes upwards by 50 pixels)
+            pa.circle(pa.width/2, i * 50, 50);
+
         }
 
     }

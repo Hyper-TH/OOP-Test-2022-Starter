@@ -27,11 +27,11 @@ public class NematodeVisualiser extends PApplet
 		}
 
 		// Restart when reached limits
-		if(keyCode < 0)
+		if(currentNematode < 0)
 		{
 			currentNematode = 0;	
 		}
-		if(keyCode > 12)
+		if(currentNematode > 12)
 		{
 			currentNematode = 0;
 		}
@@ -84,6 +84,7 @@ public class NematodeVisualiser extends PApplet
 		// 	n.render(this);
 		// }
 
+		// Replace index with currentNematode
 		Nematode n = nematodes.get(3);
 		n.render(this);
 	}
