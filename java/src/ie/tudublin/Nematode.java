@@ -52,7 +52,7 @@ public class Nematode
     public Nematode(TableRow tr)
     {
         this(
-            tr.getString("Name"),
+            tr.getString("name"),
             tr.getInt("length"),
             tr.getInt("limbs"),
             tr.getString("gender"),
