@@ -107,7 +107,7 @@ public class Nematode
             if(limbs)
             {
                 pa.stroke(255,255,255);
-                pa.line(x, i*50, x, i*50);
+                pa.line(pa.width/2, i*50, pa.width/2, i*50);
             }
 
 
